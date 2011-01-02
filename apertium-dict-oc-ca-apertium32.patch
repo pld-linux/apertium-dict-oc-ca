@@ -1,0 +1,24 @@
+--- apertium-oc-ca-1.0.5/configure.ac.orig	2008-07-21 13:02:56.000000000 +0200
++++ apertium-oc-ca-1.0.5/configure.ac	2011-01-02 09:38:41.805899015 +0100
+@@ -23,8 +23,20 @@
+           APERTIUM_VER=20
+       ],
+       [
+-          PKG_CHECK_MODULES(APERTIUM, apertium-3.0 >= 3.0.0)
++          PKG_CHECK_MODULES(APERTIUM, apertium-3.0 >= 3.0.0,
++	  [
+           APERTIUM_VER=30
++	  ],
++	  [
++		PKG_CHECK_MODULES(APERTIUM, apertium-3.1 >= 3.1.0,
++		[
++		APERTIUM_VER=31
++		],
++		[
++		PKG_CHECK_MODULES(APERTIUM, apertium-3.2 >= 3.2.0)
++		APERTIUM_VER=32
++		])
++	  ])
+       ])
+   ])
+   AC_SUBST(APERTIUM_VER)
