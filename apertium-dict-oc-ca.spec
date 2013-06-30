@@ -2,15 +2,12 @@ Summary:	Occitan-Catalan language pair for Apertium
 Summary(pl.UTF-8):	Para języków okcytański-kataloński dla Apertium
 %define	lpair	oc-ca
 Name:		apertium-dict-%{lpair}
-Version:	1.0.5
+Version:	1.0.6
 Release:	1
 License:	GPL v2+
 Group:		Applications/Text
 Source0:	http://downloads.sourceforge.net/apertium/apertium-%{lpair}-%{version}.tar.gz
-# Source0-md5:	902a96a35ae43d3f9437ae92f812459e
-Patch0:		%{name}-DESTDIR.patch
-Patch1:		%{name}-apertium32.patch
-Patch2:		%{name}-fix.patch
+# Source0-md5:	7467abca9a789ed39da56e866605e4af
 URL:		http://www.apertium.org/
 BuildRequires:	apertium-devel >= 3.2.0
 BuildRequires:	autoconf >= 2.52
@@ -33,9 +30,6 @@ oznaczania części mowy w obu językach.
 
 %prep
 %setup -q -n apertium-%{lpair}-%{version}
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
 
 %build
 %{__aclocal}
